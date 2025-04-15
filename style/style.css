@@ -9,3 +9,14 @@ body{
 form{
     text-align: end;
 }
+input{
+    font-size: 15px;
+    width: 300px;
+}
+h3{
+    text-align: center;
+}
+select{
+    font-size: 15px;
+    width: 300px;
+}

@@ -8,13 +8,91 @@
 </head>
 <body>
     <h1>Empresa de Logística</h1>
-    <p>Faça o cadastro do motorista e da carga abaixo</p>
+    <p>Faça o cadastro do motorista e da carga no formulário abaixo</p>
     <form action="">
+
+        <h3>Informações do Motorista:</h3>
         <label for="nomeMotorista">Nome do Motorista:</label>
         <input type="text" name="nomeMotorista" id="nomeMotorista">
         <br>
         <label for="dataNascimentoMotorista">Data de Nascimento do Motorista:</label>
-        <input type="text" name="dataNascimentoMotorista" id="dataNascimentoMotorista">
+        <input type="date" name="dataNascimentoMotorista" id="dataNascimentoMotorista">
+        <br>
+        <label for="cpfMotorista">CPF do Motorista:</label>
+        <input type="text" name="cpfMotorista" id="cpfMotorista">
+        <br>
+        <label for="telefoneMotorista">Número de Telefone do Motorista:</label>
+        <input type="tel" name="telefoneMotorista" id="telefoneMotorista">
+        <br>
+        <label for="emailMotorista">E-mail do Motorista:</label>
+        <input type="text" name="emailMotorista" id="emailMotorista">
+        <br>
+        <label for="registroCnhMotorista">Número de Registro da CNH:</label>
+        <input type="text" name="registroCnhMotorista" id="registroCnhMotorista">
+        <br>
+        <label for="categoriaCnhMotorista">Categoria da CNH:</label>
+        <input type="text" name="categoriaCnhMotorista" id="categoriaCnhMotorista">
+        <br>
+        <label for="validadeCnhMotorista">Validade da CNH:</label>
+        <input type="date" name="validadeCnhMotorista" id="validadeCnhMotorista">
+
+        <br>
+        <h3>Informações do Caminhão:</h3>
+        <label for="marcaCaminhao">Marca do Caminhão:</label>
+        <input type="text" name="marcaCaminhao" id="marcaCaminhao">
+        <br>
+        <label for="modeloCaminhao">Modelo do Caminhão:</label>
+        <input type="text" name="modeloCaminhao" id="modeloCaminhao">
+        <br>
+        <label for="potenciaCaminhao">Potência do Caminhão (em Cavalos):</label>
+        <input type="number" name="potenciaCaminhao" id="potenciaCaminhao">
+        <br>
+        <label for="quilometragemCaminhao">Quilometragem Atual do Caminhão:</label>
+        <input type="number" name="quilometragemCaminhao" id="quilometragemCaminhao">
+
+        <br>
+        <h3>Informações da Carga:</h3>
+        <label for="nomeCarga">Nome da Carga:</label>
+        <input type="text" name="nomeCarga" id="nomeCarga">
+        <br>
+        <label for="pesoCarga">Peso da Carga (em Toneladas):</label>
+        <input type="number" name="pesoCarga" id="pesoCarga">
+        <br>
+        <label for="tipoCarga">Tipo da Carga:</label>
+        <select name="tipoCarga" id="tipoCarga">
+            <option value="seca">Seca</option>
+            <option value="viva">Viva</option>
+            <option value="refigerada">Refrigerada</option>
+            <option value="perigosa">Perigosa</option>
+            <option value="veiculos">Veículos</option>
+            <option value="granel">A Granel</option>
+        </select>
+        <br>
+        <label for="larguraCarga">Largura da Carga (em Metros):</label>
+        <input type="number" name="larguraCarga" id="larguraCarga">
+        <br>
+        <label for="comprimentoCarga">Comprimento da Carga (em Metros):</label>
+        <input type="number" name="comprimentoCarga" id="comprimentoCarga">
+        
+        <br>
+        <h3>Informações da Viagem:</h3>
+        <label for="cidadeOrigem">Cidade de Origem:</label>
+        <input type="text" name="cidadeOrigem" id="cidadeOrigem">
+        <br>
+        <label for="estadoOrigem">Estado de Origem (em Sigla):</label>
+        <input type="text" name="estadoOrigem" id="estadoOrigem">
+        <br>
+        <label for="enderecoOrigem">Endereço de Origem:</label>
+        <input type="text" name="enderecoOrigem" id="enderecoOrigem">
+        <br>
+        <label for="cidadeDestino">Cidade de Destino:</label>
+        <input type="text" name="cidadeDestino" id="cidadeDestino">
+        <br>
+        <label for="estadoDestino">Estado de Destino (em Sigla):</label>
+        <input type="text" name="estadoDestino" id="estadoDestino">
+        <br>
+        <label for="enderecoDestino">Endereço de Destino:</label>
+        <input type="text" name="enderecoDestino" id="enderecoDestino">
     </form>
 </body>
 </html>
