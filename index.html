@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário da Empresa de Logística</title>
     <link rel="stylesheet" href="style/style.css">
+    <script src="scripts/validacao.js"></script>
 </head>
 <body>
     <h1>Empresa de Logística</h1>
-    <p>Faça o cadastro do motorista e da carga no formulário abaixo</p>
+    <p>Faça o cadastro do motorista, do caminhão, da carga e da viagem no formulário abaixo</p>
     <form action="">
 
         <h3>Informações do Motorista:</h3>
@@ -49,6 +50,18 @@
         <br>
         <label for="quilometragemCaminhao">Quilometragem Atual do Caminhão:</label>
         <input type="number" name="quilometragemCaminhao" id="quilometragemCaminhao">
+        <br>
+        <label for="corCaminhao">Cor do Caminhão:</label>
+        <input type="color" name="corCaminhao" id="corCaminhao">
+        <br>
+        <label for="consumoCaminhao">Consumo do Caminhão (em Km/L)</label>
+        <input type="number" name="consumoCaminhao" id="consumoCaminhao">
+        <br>
+        <label for="renavamCaminhao">Número do Renavam:</label>
+        <input type="text" name="renavamCaminhao" id="renavamCaminhao">
+        <br>
+        <label for="placaCaminhao">Placa do Caminhão:</label>
+        <input type="text" name="placaCaminhao" id="placaCaminhao">
 
         <br>
         <h3>Informações da Carga:</h3>
@@ -73,13 +86,16 @@
         <br>
         <label for="comprimentoCarga">Comprimento da Carga (em Metros):</label>
         <input type="number" name="comprimentoCarga" id="comprimentoCarga">
+        <br>
+        <label for="valorCarga">Valor da Carga Declarada (em R$):</label>
+        <input type="number" name="valorCarga" id="valorCarga">
         
         <br>
         <h3>Informações da Viagem:</h3>
         <label for="cidadeOrigem">Cidade de Origem:</label>
         <input type="text" name="cidadeOrigem" id="cidadeOrigem">
         <br>
-        <label for="estadoOrigem">Estado de Origem (em Sigla):</label>
+        <label for="estadoOrigem">Estado de Origem (Sigla):</label>
         <input type="text" name="estadoOrigem" id="estadoOrigem">
         <br>
         <label for="enderecoOrigem">Endereço de Origem:</label>
@@ -88,11 +104,30 @@
         <label for="cidadeDestino">Cidade de Destino:</label>
         <input type="text" name="cidadeDestino" id="cidadeDestino">
         <br>
-        <label for="estadoDestino">Estado de Destino (em Sigla):</label>
+        <label for="estadoDestino">Estado de Destino (Sigla):</label>
         <input type="text" name="estadoDestino" id="estadoDestino">
         <br>
         <label for="enderecoDestino">Endereço de Destino:</label>
         <input type="text" name="enderecoDestino" id="enderecoDestino">
+        <br>
+        <label for="distanciaViagem">Distância Total da Viagem (em Km):</label>
+        <input type="number" name="distanciaViagem" id="distanciaViagem">
+        <br>
+        <label for="tempoEstimadoViagem">Tempo Estimado de Viagem (sem Paradas):</label>
+        <input type="time" name="tempoEstimadoViagem" id="tempoEstimadoViagem">
+        <br>
+        <label for="dataHoraPartida">Data e Hora de Partida:</label>
+        <input type="datetime-local" name="dataHoraPartida" id="dataHoraPartida">
+        <br>
+        <label for="dataHoraChegada">Data e Hora Estimada de Chegada:</label>
+        <input type="datetime-local" name="dataHoraChegada" id="dataHoraChegada">
+        <br>
+        <label for="pedagioViagem">Gasto Estimado em Pedágios (em R$):</label>
+        <input type="number" name="pedagioViagem" id="pedagioViagem">
+
+        <br><br>
+        <button type="button" id="botaoEnviar" onclick="validarFormulario()">Enviar</button>
     </form>
+    <p id="copyright">©2025 CyberLog (Empresa Fictícia). Todos os Direitos Reservados</p>
 </body>
 </html>

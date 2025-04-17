@@ -20,3 +20,14 @@ select{
     font-size: 15px;
     width: 300px;
 }
+#botaoEnviar{
+    width: 300px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
+
+#copyright{
+    font-size: 10px;
+}
