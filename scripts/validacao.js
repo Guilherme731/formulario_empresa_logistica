@@ -51,7 +51,7 @@ function validarFormulario(){
         }
     }
 
-    //Verificar e transformar em números os que devem ser números
+    //Verificar se são números (os que devem ser números)
 
     if(!validarNumero(potenciaCaminhao, 0, 1000))return;
     if(!validarNumero(quilometragemCaminhao, 0, 10000000))return;
@@ -65,6 +65,10 @@ function validarFormulario(){
     
 
     //Verificar se os números que são strings (como CPF e RENAVAM) são apenas números
+    if(!validarNumeroString(cpfMotorista, 11))return;
+    if(!validarNumeroString(telefoneMotorista, 11))return;
+    if(!validarNumeroString(registroCnhMotorista, 11))return;
+    if(!validarNumeroString(renavamCaminhao, 11))return;
 
     //Verificar se textos simples (como nome e cidade) não possuem caracteres especiais e números
 
@@ -78,4 +82,42 @@ function validarNumero(elemento, valorMinimo, valorMaximo){
         return false;
     }
     return true;
+}
+function validarNumeroString(elemento, numeroCaracteres){
+    let string = elemento.value;
+    if(isNaN(parseInt(string)) || string.length != numeroCaracteres){
+        let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
+        alert('Insira um valor válido em ' + label + ' (verifique se possui ' + numeroCaracteres + ' caracteres');
+        return false;
+    }
+    return true;
+}
+function validarString(elemento, caracteresMin, caracteresMax){
+    let string = elemento.value;
+    if(string.length > caracteresMax){
+        let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
+        alert('O campo ' + label + ' possui mais de ' + caracteresMax + ' caracteres');
+        return false;
+    }
+    if(string.length < caracteresMin){
+        let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
+        alert('O campo ' + label + ' possui menos de ' + caracteresMin + ' caracteres');
+        return false;
+    }
+    string.forEach(caractere => {
+        if(!isNaN(parseInt(caractere)) || caractereEspecial(caractere)){
+            let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
+            alert('O campo ' + label + ' tem um valor inválido. ');
+            return false;
+        }
+    });
+}
+function caractereEspecial(caractere){
+    const especiais = ['/', '@', ']', '[', '{', '}', '<', '>', '?', '!', '#', '$'];
+    especiais.forEach(element => {
+        if(element === caractere){
+            return true;
+        }
+    });
+    return false;
 }
