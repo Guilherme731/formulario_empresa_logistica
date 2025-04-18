@@ -1,88 +1,81 @@
 function validarFormulario(){
+
     //Obter Dados
 
-    //Motorista
-    const nomeMotorista = document.getElementById('nomeMotorista').value;
-    const dataNascimentoMotorista = document.getElementById('dataNascimentoMotorista').value;
-    const cpfMotorista = document.getElementById('cpfMotorista').value;
-    const telefoneMotorista = document.getElementById('telefoneMotorista').value;
-    const emailMotorista = document.getElementById('emailMotorista').value;
-    const registroCnhMotorista = document.getElementById('registroCnhMotorista').value;
-    const categoriaCnhMotorista = document.getElementById('categoriaCnhMotorista').value;
-    const validadeCnhMotorista = document.getElementById('validadeCnhMotorista').value;
+    let formulario = {
+        nomeMotorista:  document.getElementById('nomeMotorista'),
+        dataNascimentoMotorista: document.getElementById('dataNascimentoMotorista'),
+        cpfMotorista: document.getElementById('cpfMotorista'),
+        telefoneMotorista: document.getElementById('telefoneMotorista'),
+        emailMotorista: document.getElementById('emailMotorista'),
+        registroCnhMotorista: document.getElementById('registroCnhMotorista'),
+        categoriaCnhMotorista: document.getElementById('categoriaCnhMotorista'),
+        validadeCnhMotorista: document.getElementById('validadeCnhMotorista'),
 
-    //Caminhão:
-    const marcaCaminhao = document.getElementById('marcaCaminhao').value;
-    const modeloCaminhao = document.getElementById('modeloCaminhao').value;
-    const potenciaCaminhao = parseFloat(document.getElementById('potenciaCaminhao').value);
-    const quilometragemCaminhao = parseFloat(document.getElementById('quilometragemCaminhao').value);
-    const corCaminhao = document.getElementById('corCaminhao').value;
-    const consumoCaminhao = parseFloat(document.getElementById('consumoCaminhao').value);
-    const renavamCaminhao = document.getElementById('renavamCaminhao').value;
-    const placaCaminhao = document.getElementById('placaCaminhao').value;
+        marcaCaminhao: document.getElementById('marcaCaminhao'),
+        modeloCaminhao: document.getElementById('modeloCaminhao'),
+        potenciaCaminhao: document.getElementById('potenciaCaminhao'),
+        quilometragemCaminhao: document.getElementById('quilometragemCaminhao'),
+        corCaminhao: document.getElementById('corCaminhao'),
+        consumoCaminhao: document.getElementById('consumoCaminhao'),
+        renavamCaminhao: document.getElementById('renavamCaminhao'),
+        placaCaminhao: document.getElementById('placaCaminhao'),
 
-    //Carga
-    const nomeCarga = document.getElementById('nomeCarga').value;
-    const pesoCarga = parseFloat(document.getElementById('pesoCarga').value);
-    const tipoCarga = document.getElementById('tipoCarga').value;
-    const larguraCarga = parseFloat(document.getElementById('larguraCarga').value);
-    const comprimentoCarga = parseFloat(document.getElementById('comprimentoCarga').value);
-    const valorCarga = parseFloat(document.getElementById('valorCarga').value);
+        nomeCarga: document.getElementById('nomeCarga'),
+        pesoCarga: document.getElementById('pesoCarga'),
+        tipoCarga: document.getElementById('tipoCarga'),
+        larguraCarga: document.getElementById('larguraCarga'),
+        comprimentoCarga: document.getElementById('comprimentoCarga'),
+        valorCarga: document.getElementById('valorCarga'),
 
-    //Viagem
-    const cidadeOrigem = document.getElementById('cidadeOrigem').value;
-    const estadoOrigem = document.getElementById('estadoOrigem').value;
-    const enderecoOrigem = document.getElementById('enderecoOrigem').value;
-    const cidadeDestino = document.getElementById('cidadeDestino').value;
-    const estadoDestino = document.getElementById('estadoDestino').value;
-    const enderecoDestino = document.getElementById('enderecoDestino').value;
-    const distanciaViagem = parseFloat(document.getElementById('distanciaViagem').value);
-    const tempoEstimadoViagem = document.getElementById('tempoEstimadoViagem').value;
-    const dataHoraPartida = document.getElementById('dataHoraPartida').value;
-    const dataHoraChegada = document.getElementById('dataHoraChegada').value;
-    const pedagioViagem = document.getElementById('pedagioViagem').value;
-
-
-    //Adicionar dados em objetos, para facilitar a validação
-    let motorista = {
-        nomeMotorista:  nomeMotorista,
-        dataNascimentoMotorista: dataNascimentoMotorista,
-        cpfMotorista: cpfMotorista,
-        telefoneMotorista: telefoneMotorista,
-        emailMotorista: emailMotorista,
-        registroCnhMotorista: registroCnhMotorista,
-        categoriaCnhMotorista: categoriaCnhMotorista,
-        validadeCnhMotorista: validadeCnhMotorista
-    };
-    let caminhao = {
-        marcaCaminhao: marcaCaminhao,
-        modeloCaminhao: modeloCaminhao,
-        potenciaCaminhao: potenciaCaminhao,
-        quilometragemCaminhao: quilometragemCaminhao,
-        corCaminhao: corCaminhao,
-        consumoCaminhao: consumoCaminhao,
-        renavamCaminhao: renavamCaminhao,
-        placaCaminhao: placaCaminhao
-    };
-    let carga = {
-        nomeCarga: nomeCarga,
-        pesoCarga: pesoCarga,
-        tipoCarga: tipoCarga,
-        larguraCarga: larguraCarga,
-        comprimentoCarga: comprimentoCarga,
-        valorCarga: valorCarga
-    };
-    let viagem = {
-        cidadeOrigem: cidadeOrigem,
-        estadoOrigem: estadoOrigem,
-        enderecoOrigem: enderecoOrigem,
-        cidadeDestino: cidadeDestino,
-        estadoDestino: estadoDestino,
-        enderecoDestino: enderecoDestino,
-        distanciaViagem: distanciaViagem,
-        tempoEstimadoViagem: tempoEstimadoViagem,
-        dataHoraPartida: dataHoraPartida,
-        dataHoraChegada: dataHoraChegada,
-        pedagioViagem: pedagioViagem
+        cidadeOrigem: document.getElementById('cidadeOrigem'),
+        estadoOrigem: document.getElementById('estadoOrigem'),
+        enderecoOrigem: document.getElementById('enderecoOrigem'),
+        cidadeDestino: document.getElementById('cidadeDestino'),
+        estadoDestino: document.getElementById('estadoDestino'),
+        enderecoDestino: document.getElementById('enderecoDestino'),
+        distanciaViagem: document.getElementById('distanciaViagem'),
+        tempoEstimadoViagem: document.getElementById('tempoEstimadoViagem'),
+        dataHoraPartida: document.getElementById('dataHoraPartida'),
+        dataHoraChegada: document.getElementById('dataHoraChegada'),
+        pedagioViagem: document.getElementById('pedagioViagem')
     }
+
+    //Verificar se todos não estão vazios ou nulos
+
+    for(let elemento of Object.values(formulario)) {
+        if(!elemento.value){
+            let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
+            alert('Não deixe ' + label + ' vazio');
+            return;
+        }
+    }
+
+    //Verificar e transformar em números os que devem ser números
+
+    if(!validarNumero(potenciaCaminhao, 0, 1000))return;
+    if(!validarNumero(quilometragemCaminhao, 0, 10000000))return;
+    if(!validarNumero(consumoCaminhao, 0, 30))return;
+    if(!validarNumero(pesoCarga, 0, 1000))return;
+    if(!validarNumero(larguraCarga, 0, 50))return;
+    if(!validarNumero(comprimentoCarga, 0, 200))return;
+    if(!validarNumero(valorCarga, 0, 1000000000000))return;
+    if(!validarNumero(distanciaViagem, 0, 100000))return;
+    if(!validarNumero(pedagioViagem, 0, 1000000))return;
+    
+
+    //Verificar se os números que são strings (como CPF e RENAVAM) são apenas números
+
+    //Verificar se textos simples (como nome e cidade) não possuem caracteres especiais e números
+
+    //Verificar casos especiais
+}
+function validarNumero(elemento, valorMinimo, valorMaximo){
+    let numero = parseFloat(elemento.value);
+    if(isNaN(numero) || numero < valorMinimo || numero > valorMaximo){
+        let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
+        alert('Insira um valor válido em ' + label + ' (verifique se é um número e se é maior que ' + valorMinimo + ' e menor que ' + valorMaximo);
+        return false;
+    }
+    return true;
 }
