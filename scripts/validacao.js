@@ -71,8 +71,15 @@ function validarFormulario(){
     if(!validarNumeroString(renavamCaminhao, 11))return;
 
     //Verificar se textos simples (como nome e cidade) não possuem caracteres especiais e números
+    if(!validarString(nomeMotorista, 3, 50))return;
+    if(!validarString(categoriaCnhMotorista, 1, 3))return;
+    if(!validarString(marcaCaminhao, 1, 30))return;
+    if(!validarString(nomeCarga, 1, 40))return;
+    if(!validarString(cidadeOrigem, 2, 30))return;
+    if(!validarString(estadoOrigem, 2, 2))return;
+    if(!validarString(cidadeDestino, 2, 30))return;
+    if(!validarString(estadoDestino, 2, 2))return;
 
-    //Verificar casos especiais
 }
 function validarNumero(elemento, valorMinimo, valorMaximo){
     let numero = parseFloat(elemento.value);
@@ -94,30 +101,34 @@ function validarNumeroString(elemento, numeroCaracteres){
 }
 function validarString(elemento, caracteresMin, caracteresMax){
     let string = elemento.value;
+    //Verifica o máximo de caracteres
     if(string.length > caracteresMax){
         let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
         alert('O campo ' + label + ' possui mais de ' + caracteresMax + ' caracteres');
         return false;
     }
+    //Verifica o mínimo de caracteres
     if(string.length < caracteresMin){
         let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
         alert('O campo ' + label + ' possui menos de ' + caracteresMin + ' caracteres');
         return false;
     }
-    string.forEach(caractere => {
+    //Verifica se possui números ou caracteres especiais
+    for(let caractere of Object.values(string)) {
         if(!isNaN(parseInt(caractere)) || caractereEspecial(caractere)){
             let label = document.querySelector('label[for="' + elemento.id + '"]').innerHTML.split(':')[0]; //Acessa a label, retirando o ':' e utilizando o atributo 'for'
             alert('O campo ' + label + ' tem um valor inválido. ');
             return false;
         }
-    });
+    }
+    return true;
 }
 function caractereEspecial(caractere){
     const especiais = ['/', '@', ']', '[', '{', '}', '<', '>', '?', '!', '#', '$'];
-    especiais.forEach(element => {
+    for(let element of Object.values(especiais)) {
         if(element === caractere){
             return true;
         }
-    });
+    }
     return false;
 }
